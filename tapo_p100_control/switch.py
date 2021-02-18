@@ -84,7 +84,6 @@ class P100Plug(SwitchEntity):
         self._p100.login()
         
         data = self._p100.getDeviceInfo()
-        data = json.loads(data)
         
         encodedName = data["result"]["nickname"]
         name = b64decode(encodedName)
