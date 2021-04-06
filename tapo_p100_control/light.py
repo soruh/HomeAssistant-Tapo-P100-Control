@@ -165,9 +165,6 @@ class L510Bulb(LightEntity):
         color_temp = kwargs.get(ATTR_COLOR_TEMP)
         hs_color = kwargs.get(ATTR_HS_COLOR)
 
-        self._p100.handshake()
-        self._p100.login()
-
         # Only turn on if effects aren't being set, as they turn the bulb on anyway
         if brightness or color_temp or hs_color:
             _LOGGER.debug("Trying brightness: %s, color temp: %s, hue-sat: %s", brightness, color_temp, hs_color)
@@ -191,8 +188,7 @@ class L510Bulb(LightEntity):
 
     def turn_off(self, **kwargs):
         """Turn Bulb Off"""
-        self._p100.handshake()
-        self._p100.login()
+
         self._p100.turnOff()
 
         self._is_on = False
