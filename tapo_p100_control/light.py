@@ -211,6 +211,7 @@ class L510Bulb(LightEntity):
         self._unique_id = data["result"]["device_id"]
         self._model = data["result"]["model"]
         self._brightness = data["result"]["brightness"]
+
         try:
             self._color_temp = data["result"]["color_temp"]
             if self._color_temp == 0:
@@ -221,3 +222,6 @@ class L510Bulb(LightEntity):
             self._hs_color = ( data["result"]["hue"], data["result"]["saturation"] )
         except KeyError:
             self._hs_color = None
+
+        self._unique_id = data["result"]["device_id"]
+
