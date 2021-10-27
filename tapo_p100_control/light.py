@@ -198,7 +198,6 @@ class L510Bulb(LightEntity):
         self._p100.login()
 
         data = self._p100.getDeviceInfo()
-
         encodedName = data["result"]["nickname"]
         name = b64decode(encodedName)
         self._name = name.decode("utf-8")
