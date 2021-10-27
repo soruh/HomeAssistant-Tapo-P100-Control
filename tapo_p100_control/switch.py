@@ -92,4 +92,3 @@ class P100Plug(SwitchEntity):
         self._is_on = data["result"]["device_on"]
         self._unique_id = data["result"]["device_id"]
         
-
